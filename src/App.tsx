@@ -18,7 +18,7 @@ function App() {
 
 
 
-      <Typography variant='h2' component="h1" gutterBottom align='center'>Habit Tracker</Typography>
+      <Typography variant='h2' component="h1" gutterBottom align='center'>Shivam Habit okok Tracker</Typography>
 
       <AddHabitForm />
 

@@ -1,0 +1,25 @@
+name: Docker and AWS 
+
+on:
+    push:
+        branches:
+            - main
+jobs:
+    docker:
+        name: BUILD And Push Image
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: CHECKOUT Code
+              uses: actions/checkout@v4
+               
+              
+            - name: Login to docker
+              run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+            - name: Build Docker Iamge
+              run: docker build -t ${{secrets.DOCKER_USERNAME}}/zustad_learn:latest .
+             
+            - name: Push Docker Image
+              run: docker push ${{ secrets.DOCKER_USERNAME }}/zustad_learn:latest  
+  

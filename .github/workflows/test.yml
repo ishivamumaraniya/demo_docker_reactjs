@@ -1,0 +1,30 @@
+name: zustad pull
+
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    test:
+        name: RUN TEST ON Zustad PULL
+        runs-on: ubuntu-latest
+        
+        steps: 
+            - name: Checkout code
+              uses: actions/checkout@v4
+              
+            - name: Setup Nodeks
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
+                cache: npm
+
+            - name: Install Dependency
+              run: npm ci
+
+            - name: LINT CODE
+              run: npm run lint 
+              
+            - name: BUILD Project
+              run: npm run build

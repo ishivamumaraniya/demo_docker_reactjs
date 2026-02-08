@@ -15,7 +15,7 @@ interface HabitState {
     habits: Habit[];
     addHabit: (name: string, frequency: "daily" | "weekly") => void;
     removeHabit: (id: string) => void;
-    toggleHabit: (id: string, date: string) => void;
+  
 }
 const useHabitStore = create<HabitState>()((set) => {
     return {
@@ -43,11 +43,7 @@ const useHabitStore = create<HabitState>()((set) => {
             habits: state.habits.filter((habit) => habit.id !== id),
         })),
 
-        toggleHabit:(id,date)=>set((state)=>({
-
-
-            
-        }))
+ 
     }
 })
 
